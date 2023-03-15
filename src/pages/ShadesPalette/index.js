@@ -1,0 +1,1 @@
+export { ShadesPalette as default } from './ShadesPalette'

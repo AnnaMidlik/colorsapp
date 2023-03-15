@@ -1,0 +1,1 @@
+export { DraggableBoxes as default } from './DraggableBoxes'

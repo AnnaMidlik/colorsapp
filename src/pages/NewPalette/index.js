@@ -1,0 +1,1 @@
+export { NewPalette as default } from './NewPalette'

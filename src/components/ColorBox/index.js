@@ -1,0 +1,1 @@
+export { ColorBox as default } from './ColorBox'
