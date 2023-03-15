@@ -30,7 +30,6 @@ export function NewPalette() {
     let newPalette = {
       paletteName: paletteName,
       id: paletteName.toLowerCase().replace(/ /g, '-'),
-      emoji: "🎨",
       colors: state
     }
     seedsColor.push(newPalette);

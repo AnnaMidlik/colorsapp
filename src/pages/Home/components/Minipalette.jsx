@@ -1,8 +1,8 @@
 import React from "react";
 import styles from './MinipaletteStyle'
 
-export function Minipalette({ paletteName, id, emoji, colors, handleClick }) {
-  const { minipalette, colorsContainer, title, miniColorBox, emojiSpan } = styles();
+export function Minipalette({ paletteName, id, colors, handleClick }) {
+  const { minipalette, colorsContainer, title, miniColorBox } = styles();
   const showMinipalettes = (colors) => {
     return colors.map(color => <div className={miniColorBox}
       style={{ backgroundColor: color.color }}
@@ -12,7 +12,6 @@ export function Minipalette({ paletteName, id, emoji, colors, handleClick }) {
     <div className={minipalette} onClick={() => handleClick(id)}>
       <div className={colorsContainer}>{showMinipalettes(colors)}</div>
       <h3 className={title}>{paletteName}
-        <span className={emojiSpan}>{emoji}</span>
       </h3>
     </div>
   )

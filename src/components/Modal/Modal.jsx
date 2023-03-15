@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import Button from '../Button';
 import styles from './ModalStyle';
 
@@ -8,7 +7,6 @@ export function Modal({ showModal, setShowModal, savePalette }) {
   const [paletteName, setPaletteName] = useState('');
   const [errorName, setErrorName] = useState('');
   const { container, modal, modalBtns, error } = styles({ showModal, errorName });
-
   const handleChange = (e) => {
     setErrorName('');
     setPaletteName(e.target.value)

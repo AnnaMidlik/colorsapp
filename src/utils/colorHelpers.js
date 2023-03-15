@@ -22,7 +22,6 @@ function generatePalette(palette) {
   let newPalette = {
     paletteName: palette.paletteName,
     id: palette.id,
-    emoji: palette.emoji,
     colors: {}
   }
   for (let level of levels) {

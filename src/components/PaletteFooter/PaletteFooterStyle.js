@@ -6,7 +6,8 @@ const styles = createUseStyles({
     height: '5%',
     textAlign: 'end',
     "& p": {
-      margin: '0',
+      margin: '0 1rem 0 0',
+
     }
   }
 })

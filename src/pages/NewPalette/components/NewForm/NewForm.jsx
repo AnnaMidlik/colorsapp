@@ -30,7 +30,15 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
     }
 
   }
-  const randomColor = () => { }
+  const randomColor = () => {
+    let newColor = Math.floor(Math.random() * 16777215).toString(16);
+    return dispatch({
+      setErrorName: setErrorName,
+      type: 'create',
+      color: `#${newColor}`,
+      name: newColor
+    })
+  }
   return (
     <div className={newFormContainer}>
       <h2>Design your palette</h2>
@@ -45,6 +53,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
             })
           } />
         <Button
+          onClick={randomColor}
           color={'#023E8A'}
           text='RANDOM COLOR'
           width={'50%'} />

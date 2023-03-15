@@ -9,7 +9,7 @@ import styles from './PaletteStyle';
 
 export function Palette() {
   const params = useParams();
-  const { colors, id, paletteName, emoji } = generatePalette(findPalette(params.id));
+  const { colors, id, paletteName } = generatePalette(findPalette(params.id));
   const [level, setLevel] = useState(500);
   const [colorType, setColorType] = useState('hex');
   const { onePalette, boxes } = styles();
@@ -36,8 +36,7 @@ export function Palette() {
         {showBoxes()}
       </div>
       <PaletteFooter
-        paletteName={paletteName}
-        emoji={emoji} />
+        paletteName={paletteName} />
     </div>
   )
 }

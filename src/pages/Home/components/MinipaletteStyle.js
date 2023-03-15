@@ -34,10 +34,6 @@ const styles = createUseStyles({
     margin: '0',
     paddingTop: '0.5rem'
   },
-  emojiSpan: {
-    marginLeft: "0.5rem",
-    fontSize: "1rem"
-  },
   miniColorBox: {
     width: '20%',
     height: '25%',

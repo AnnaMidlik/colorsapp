@@ -11,7 +11,7 @@ import styles from '../Palette/PaletteStyle';
 export function ShadesPalette() {
   const [colorType, setColorType] = useState('hex');
   const { paletteId, colorId } = useParams();
-  const { colors, paletteName, emoji } = generatePalette(findPalette(paletteId));
+  const { colors, paletteName } = generatePalette(findPalette(paletteId));
   const { onePalette, boxes, goBack } = styles();
 
   const showColorShadesBox = () => {
@@ -34,7 +34,6 @@ export function ShadesPalette() {
       </div>
     </div>
     <PaletteFooter
-      emoji={emoji}
       paletteName={paletteName}
     />
   </div>
