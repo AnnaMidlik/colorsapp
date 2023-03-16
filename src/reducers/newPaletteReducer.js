@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-export default function reducer(state, action) {
+export default function newPaletteReducer(state, action) {
   switch (action.type) {
     case 'create':
+      console.log(state)
       let validate = state.find(color => color.name === action.name)
       if (!validate) {
         const newItem = { color: action.color, name: action.name, id: uuidv4() }

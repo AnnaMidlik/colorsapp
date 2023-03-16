@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { Context } from '../../../../context/context';
+import { NewPaletteContext } from '../../../../context/newPaletteContext';
 import styles from './DraggableColorBoxStyle';
 import removeColor from '../../../../assets/icons/removeColor.png'
 
 export function DraggableColorBox({ box }) {
-  const { dispatch, currentBox, setCurrentBox } = useContext(Context)
+  const { dispatch, currentBox, setCurrentBox } = useContext(NewPaletteContext)
   const { boxContainer } = styles(box);
   const handleDragStart = (e, box) => {
     setCurrentBox(box)

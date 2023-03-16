@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { PalettesContext } from '../../context/palettesContext';
 import { useParams, Link } from 'react-router-dom';
 import findPalette from '../../utils/findPalette';
 import { generatePalette } from '../../utils/colorHelpers';
@@ -9,9 +10,10 @@ import { PaletteFooter } from '../../components/PaletteFooter/PaletteFooter.jsx'
 import styles from '../Palette/PaletteStyle';
 
 export function ShadesPalette() {
+  const { palettesState } = useContext(PalettesContext);
   const [colorType, setColorType] = useState('hex');
   const { paletteId, colorId } = useParams();
-  const { colors, paletteName } = generatePalette(findPalette(paletteId));
+  const { colors, paletteName } = generatePalette(findPalette(palettesState, paletteId));
   const { onePalette, boxes, goBack } = styles();
 
   const showColorShadesBox = () => {

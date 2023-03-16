@@ -1,5 +1,3 @@
-import seedsColor from "../data/seedsColor";
-
-export default function findPalette(id) {
-  return seedsColor.find((palette) => palette.id === id)
+export default function findPalette(palettes, id) {
+  return palettes.find((palette) => palette.id === id)
 }

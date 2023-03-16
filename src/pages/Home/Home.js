@@ -11,6 +11,7 @@ export function Home() {
         <Navbar />
         <PaletteList />
       </div>
+
     </div>
   )
 };

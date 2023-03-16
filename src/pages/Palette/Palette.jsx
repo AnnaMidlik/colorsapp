@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { PalettesContext } from '../../context/palettesContext';
 import { useParams } from 'react-router-dom'
 import Navbar from '../../components/Navbar';
 import ColorBox from '../../components/ColorBox';
@@ -9,7 +10,8 @@ import styles from './PaletteStyle';
 
 export function Palette() {
   const params = useParams();
-  const { colors, id, paletteName } = generatePalette(findPalette(params.id));
+  const { palettesState } = useContext(PalettesContext)
+  const { colors, id, paletteName } = generatePalette(findPalette(palettesState, params.id));
   const [level, setLevel] = useState(500);
   const [colorType, setColorType] = useState('hex');
   const { onePalette, boxes } = styles();

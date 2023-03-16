@@ -1,12 +1,12 @@
 import React, { useContext, useState, useRef } from 'react';
 import { ChromePicker } from 'react-color';
 import Button from '../../../../components/Button';
-import { Context } from '../../../../context/context';
+import { NewPaletteContext } from '../../../../context/newPaletteContext';
 import styles from './NewFormStyle';
 
 
 export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
-  const { dispatch } = useContext(Context)
+  const { newPaletteDispatch } = useContext(NewPaletteContext)
   const [colorName, setColorName] = useState('');
   const [errorName, setErrorName] = useState('');
   const inputRef = useRef(null)
@@ -18,7 +18,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (colorName !== '') {
-      dispatch({
+      newPaletteDispatch({
         setErrorName: setErrorName,
         type: 'create',
         color: currentColor.hex,
@@ -32,7 +32,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
   }
   const randomColor = () => {
     let newColor = Math.floor(Math.random() * 16777215).toString(16);
-    return dispatch({
+    return newPaletteDispatch({
       setErrorName: setErrorName,
       type: 'create',
       color: `#${newColor}`,
@@ -48,7 +48,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
           text='CLEAR PALETTE'
           width={'50%'}
           onClick={() =>
-            dispatch({
+            newPaletteDispatch({
               type: 'clear'
             })
           } />
