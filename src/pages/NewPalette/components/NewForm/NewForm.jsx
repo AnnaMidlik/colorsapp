@@ -24,6 +24,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
         color: currentColor.hex,
         name: colorName
       })
+      setColorName('')
     } else {
       inputRef.current.focus()
       return setErrorName('color name is required')
