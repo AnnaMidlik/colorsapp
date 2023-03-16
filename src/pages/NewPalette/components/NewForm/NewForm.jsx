@@ -4,13 +4,19 @@ import Button from '../../../../components/Button';
 import { NewPaletteContext } from '../../../../context/newPaletteContext';
 import styles from './NewFormStyle';
 
-
 export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
   const { newPaletteDispatch } = useContext(NewPaletteContext)
   const [colorName, setColorName] = useState('');
   const [errorName, setErrorName] = useState('');
   const inputRef = useRef(null)
-  const { newFormContainer, formContainer, addColor, formBtns, chromePicker, input, error } = styles({ isOpenForm, currentColor, errorName })
+  const {
+    newFormContainer,
+    formContainer,
+    addColor, formBtns,
+    chromePicker,
+    input,
+    error
+  } = styles({ isOpenForm, currentColor, errorName })
   const handleChange = (e) => {
     setErrorName('');
     setColorName(e.target.value)
@@ -29,7 +35,6 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
       inputRef.current.focus()
       return setErrorName('color name is required')
     }
-
   }
   const randomColor = () => {
     const hexValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
@@ -56,8 +61,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
           onClick={() =>
             newPaletteDispatch({
               type: 'clear'
-            })
-          } />
+            })} />
         <Button
           onClick={randomColor}
           color={'#023E8A'}

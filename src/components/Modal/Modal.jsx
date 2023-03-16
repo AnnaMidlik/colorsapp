@@ -1,9 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { PalettesContext } from '../../context/palettesContext';
 import Button from '../Button';
 import styles from './ModalStyle';
 
-export function Modal({ showModal, setShowModal, savePalette }) {
+export function Modal({ showModal, setShowModal, colors }) {
   const inputRef = useRef(null);
+  const { palettesDispatch } = useContext(PalettesContext)
+  let navigate = useNavigate();
   const [paletteName, setPaletteName] = useState('');
   const [errorName, setErrorName] = useState('');
   const { container, modal, modalBtns, error } = styles({ showModal, errorName });
@@ -14,8 +18,16 @@ export function Modal({ showModal, setShowModal, savePalette }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (paletteName !== '') {
-      setShowModal(false);
-      return savePalette(paletteName)
+      palettesDispatch({
+        type: 'create',
+        setErrorName: setErrorName,
+        paletteName: paletteName,
+        colors: colors
+      })
+      if (errorName === '') {
+        setShowModal(false);
+        navigate('/colorsapp');
+      }
     } else {
       inputRef.current.focus()
       return setErrorName('palette name is required')
@@ -52,6 +64,5 @@ export function Modal({ showModal, setShowModal, savePalette }) {
         </form>
       </div>
     </div>
-
   )
 }
