@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/colorsapp/static/css/main.c8f641ec.css",
-    "main.js": "/colorsapp/static/js/main.48f63747.js",
+    "main.js": "/colorsapp/static/js/main.dd6c2b77.js",
     "index.html": "/colorsapp/index.html",
     "main.c8f641ec.css.map": "/colorsapp/static/css/main.c8f641ec.css.map",
-    "main.48f63747.js.map": "/colorsapp/static/js/main.48f63747.js.map"
+    "main.dd6c2b77.js.map": "/colorsapp/static/js/main.dd6c2b77.js.map"
   },
   "entrypoints": [
     "static/css/main.c8f641ec.css",
-    "static/js/main.48f63747.js"
+    "static/js/main.dd6c2b77.js"
   ]
 }
