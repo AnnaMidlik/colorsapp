@@ -13,6 +13,18 @@ const styles = createUseStyles({
     textDecoration: 'none',
     "&:hover": {
       opacity: 1
+    },
+    "& button": {
+      backgroundColor: 'transparent',
+      border: 'none',
+      cursor: 'pointer',
+      position: 'absolute',
+      bottom: '0.5rem',
+      right: '0.5rem',
+      transition: 'all 0.3s easy-in-out',
+      "&:hover": {
+        color: '#023E8A'
+      }
     }
   },
   colorsContainer: {

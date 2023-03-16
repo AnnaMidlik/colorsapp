@@ -17,9 +17,16 @@ const styles = createUseStyles({
       position: 'absolute',
       bottom: '5px',
       right: '5px',
-      '& img': {
-        height: '20px',
-        width: '20px',
+      transition: 'all 0.3s ease-in-out',
+      color: (box) =>
+        chroma(box.color).luminance() >= 0.6
+          ? 'black'
+          : 'white',
+      '&:hover': {
+        color: (box) =>
+          chroma(box.color).luminance() >= 0.6
+            ? 'white'
+            : 'black',
       }
     },
     '& div span': {

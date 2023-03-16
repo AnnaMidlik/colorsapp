@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import { NewPaletteContext } from '../../../../context/newPaletteContext';
 import styles from './DraggableColorBoxStyle';
-import removeColor from '../../../../assets/icons/removeColor.png'
 
 export function DraggableColorBox({ box }) {
-  const { dispatch, currentBox, setCurrentBox } = useContext(NewPaletteContext)
+  const { newPaletteDispatch, currentBox, setCurrentBox } = useContext(NewPaletteContext)
   const { boxContainer } = styles(box);
   const handleDragStart = (e, box) => {
     setCurrentBox(box)
@@ -12,14 +11,14 @@ export function DraggableColorBox({ box }) {
   const handleDragOver = (e, box) => {
     e.preventDefault();
     setCurrentBox(currentBox)
-    dispatch({
+    newPaletteDispatch({
       type: 'update',
       box: box,
       currentBox: currentBox,
     })
   }
   const handleDrop = (e, box) => {
-    dispatch({
+    newPaletteDispatch({
       type: 'update',
       box: box,
       currentBox: currentBox
@@ -36,16 +35,15 @@ export function DraggableColorBox({ box }) {
       onDrop={(e) => handleDrop(e, box)}
     ><div>
         <span>{box.name}</span>
-        <button onClick={() => dispatch({
+        <button onClick={() => newPaletteDispatch({
           type: 'remove',
           id: box.id
         })
         }>
-          <img src={removeColor} alt="remove" />
+          <i className="fa-solid fa-trash"></i>
         </button>
-
       </div>
-    </div>
+    </div >
   )
 
 }
