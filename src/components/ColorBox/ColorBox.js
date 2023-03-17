@@ -19,7 +19,7 @@ export function ColorBox({ color, name, colorId, paletteId, showFullPalette }) {
         <button className={copyBtn} onClick={handleCopy}>copy</button>
         <span className={title}>{name}</span>
         {showFullPalette && (
-          <Link to={`/colorsapp/palette/${paletteId}/${colorId}`} >
+          <Link to={`/colorsapp/${paletteId}/${colorId}`} >
             <span className={moreBtn} onClick={(e) => e.stopPropagation()}>more</span>
           </Link>
         )}

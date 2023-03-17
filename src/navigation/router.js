@@ -17,16 +17,16 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: '/colorsapp/palette/new',
+        path: 'colorsapp/new',
         element: <NewPalette />,
       },
       {
-        path: '/colorsapp/palette/:id',
+        path: 'colorsapp/:id',
         element: <Palette />,
         errorElement: <ErrorPage />
       },
       {
-        path: '/colorsapp/palette/:paletteId/:colorId',
+        path: 'colorsapp/:paletteId/:colorId',
         element: <ShadesPalette />,
         errorElement: <ErrorPage />
       }

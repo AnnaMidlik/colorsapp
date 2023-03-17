@@ -9,7 +9,7 @@ export function PaletteList() {
   const { minipalettes } = styles();
   let navigate = useNavigate();
   const handleClick = (id) => {
-    navigate(`/colorsapp/palette/${id}`);
+    navigate(`/colorsapp/${id}`);
   }
   const showPalettes = (pal) => {
     if (pal) {

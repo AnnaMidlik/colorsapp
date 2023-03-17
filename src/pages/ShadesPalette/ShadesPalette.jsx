@@ -14,6 +14,8 @@ export function ShadesPalette() {
   const [colorType, setColorType] = useState('hex');
   const { paletteId, colorId } = useParams();
   const { colors, paletteName } = generatePalette(findPalette(palettesState, paletteId));
+  let state = generatePalette(findPalette(palettesState, paletteId));
+  console.log(state);
   const { onePalette, boxes, goBack } = styles();
 
   const showColorShadesBox = () => {

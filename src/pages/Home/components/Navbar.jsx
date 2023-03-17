@@ -7,7 +7,7 @@ export function Navbar() {
   return (
     <nav className={nav}>
       <h1>Colors App</h1>
-      <Link to='/colorsapp/palette/new'>Create Palette</Link>
+      <Link to='/colorsapp/new'>Create Palette</Link>
     </nav>
   )
 };
