@@ -34,7 +34,7 @@ export function ShadesPalette() {
     <div className={boxes}>
       {showColorShadesBox()}
       <div className={goBack}>
-        <Link to={`/colorsapp/palette/${paletteId}`}>GO BACK</Link>
+        <Link to={`/colorsapp/${paletteId}`}>GO BACK</Link>
       </div>
     </div>
     <PaletteFooter

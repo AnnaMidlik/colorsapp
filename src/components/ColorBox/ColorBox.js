@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import { Overlay } from '../Overlay/Overlay.jsx';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from './ColorBoxStyle';
 export function ColorBox({ color, name, colorId, paletteId, showFullPalette }) {
   const [copied, setCopied] = useState(false);
+  let navigate = useNavigate();
   const { box, copyBtn, moreBtn, title } = styles({ color, showFullPalette });
+  const handleClick = (e) => {
+    e.stopPropagation();
+    navigate(`/colorsapp/${paletteId}/${colorId}`);
+  }
   const handleCopy = () => {
     setCopied(true)
     navigator.clipboard.writeText(color)
@@ -18,11 +23,7 @@ export function ColorBox({ color, name, colorId, paletteId, showFullPalette }) {
       <div>
         <button className={copyBtn} onClick={handleCopy}>copy</button>
         <span className={title}>{name}</span>
-        {showFullPalette && (
-          <Link to={`/colorsapp/${paletteId}/${colorId}`} >
-            <span className={moreBtn} onClick={(e) => e.stopPropagation()}>more</span>
-          </Link>
-        )}
+        {showFullPalette && (<span className={moreBtn} onClick={handleClick}>more</span>)}
       </div>
     </div>
   )
