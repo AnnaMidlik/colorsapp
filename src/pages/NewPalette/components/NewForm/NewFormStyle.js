@@ -54,7 +54,7 @@ const styles = createUseStyles({
     background: 'transparent',
     '&:focus': {
       outline: 'none',
-      borderBottom: ({ errorName }) => !errorName ? '2px solid black' : 'red solid 2px',
+      borderBottom: ({ validationState }) => !validationState.isError ? '2px solid black' : 'red solid 2px',
 
     }
   },

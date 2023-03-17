@@ -14,9 +14,13 @@ export function NewPalette() {
   const [currentBox, setCurrentBox] = useState(null)
   const [showModal, setShowModal] = useState(false)
   const { newPalette, main } = styles({ isOpenForm, showModal });
-
   return (<NewPaletteContext.Provider value={
-    { newPaletteDispatch, currentBox, setCurrentBox }
+    {
+      newPaletteDispatch,
+      newPaletteState,
+      currentBox,
+      setCurrentBox
+    }
   }>
     <div className={newPalette}>
       <NewForm

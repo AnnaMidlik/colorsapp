@@ -1,13 +1,15 @@
-import React, { useContext, useState, useRef } from 'react';
+import React, { useContext, useState, useRef, useReducer } from 'react';
 import { ChromePicker } from 'react-color';
 import Button from '../../../../components/Button';
 import { NewPaletteContext } from '../../../../context/newPaletteContext';
+import newPaletteValidationReducer from '../../../../reducers/newPaletteValidationReducer';
 import styles from './NewFormStyle';
 
 export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
-  const { newPaletteDispatch } = useContext(NewPaletteContext)
+  const { newPaletteDispatch, newPaletteState } = useContext(NewPaletteContext);
+  const [validationState, validationDispatch] = useReducer(newPaletteValidationReducer, { isError: false, errorMsg: '' })
+  const { isError, errorMsg } = validationState;
   const [colorName, setColorName] = useState('');
-  const [errorName, setErrorName] = useState('');
   const inputRef = useRef(null)
   const {
     newFormContainer,
@@ -16,24 +18,33 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
     chromePicker,
     input,
     error
-  } = styles({ isOpenForm, currentColor, errorName })
+  } = styles({ isOpenForm, currentColor, validationState });
+
   const handleChange = (e) => {
-    setErrorName('');
-    setColorName(e.target.value)
+    validationDispatch({
+      type: 'unique',
+      palette: newPaletteState,
+      name: e.target.value
+    })
+    setColorName(e.target.value);
+  }
+  const handleClick = (e) => {
+    validationDispatch({
+      type: 'empty',
+      name: colorName
+    });
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (colorName !== '') {
+    if (!isError) {
       newPaletteDispatch({
-        setErrorName: setErrorName,
         type: 'create',
         color: currentColor.hex,
         name: colorName
       })
       setColorName('')
     } else {
-      inputRef.current.focus()
-      return setErrorName('color name is required')
+      return inputRef.current.focus()
     }
   }
   const randomColor = () => {
@@ -44,7 +55,6 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
       newColor += hexValues[index];
     }
     return newPaletteDispatch({
-      setErrorName: setErrorName,
       type: 'create',
       color: `${newColor}`,
       name: newColor
@@ -81,13 +91,14 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
           value={colorName}
           ref={inputRef}
           onChange={handleChange} />
-        <p className={error}>{errorName}</p>
+        <p className={error}>{errorMsg}</p>
         <button
+          disabled={isError}
+          onClick={handleClick}
           className={addColor}
           type='submit'
         >ADD COLOR</button>
       </form >
     </div>
-
   )
 };
