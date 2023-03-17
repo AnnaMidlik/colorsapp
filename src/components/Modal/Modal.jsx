@@ -1,41 +1,53 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useRef, useContext, useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PalettesContext } from '../../context/palettesContext';
+import palettesValidationReducer from '../../reducers/palettesValidationReducer';
 import Button from '../Button';
 import styles from './ModalStyle';
 
 export function Modal({ showModal, setShowModal, colors }) {
   const inputRef = useRef(null);
-  const { palettesDispatch } = useContext(PalettesContext)
+  const [validationState, validationDispatch] = useReducer(palettesValidationReducer, { isError: false, errorMsg: '' })
+  const { isError, errorMsg } = validationState
+  const { palettesState, palettesDispatch } = useContext(PalettesContext)
   let navigate = useNavigate();
   const [paletteName, setPaletteName] = useState('');
-  const [errorName, setErrorName] = useState('');
-  const { container, modal, modalBtns, error } = styles({ showModal, errorName });
+  const { container, modal, modalBtns, error } = styles({ showModal, isError });
   const handleChange = (e) => {
-    setErrorName('');
+    validationDispatch({
+      type: 'unique',
+      palettes: palettesState,
+      name: e.target.value
+    })
     setPaletteName(e.target.value)
+  }
+  const handleClick = (e) => {
+    validationDispatch({
+      type: 'empty',
+      name: paletteName
+    });
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (paletteName !== '') {
+    if (!isError) {
       palettesDispatch({
         type: 'create',
-        setErrorName: setErrorName,
-        paletteName: paletteName,
-        colors: colors
+        colors: colors,
+        paletteName: paletteName
       })
-      if (errorName === '') {
-        setShowModal(false);
-        navigate('/colorsapp');
-      }
+      setPaletteName('');
+      setShowModal(false);
+      navigate('/colorsapp');
     } else {
-      inputRef.current.focus()
-      return setErrorName('palette name is required')
+      return inputRef.current.focus()
     }
   }
   const cancel = () => {
     setShowModal(false);
     setPaletteName('');
+    validationDispatch({
+      type: 'cancel'
+    })
   }
   return (
     <div className={container}>
@@ -50,13 +62,15 @@ export function Modal({ showModal, setShowModal, colors }) {
             value={paletteName}
             ref={inputRef}
             onChange={handleChange} />
-          <p className={error}>{errorName}</p>
+          <p className={error}>{errorMsg}</p>
           <div className={modalBtns}>
             <Button
               text='CANCEL'
               color='#6c757d'
               onClick={cancel} />
             <Button
+              disabled={isError}
+              onClick={handleClick}
               type='submit'
               text='SAVE'
               color='#023E8A' />
