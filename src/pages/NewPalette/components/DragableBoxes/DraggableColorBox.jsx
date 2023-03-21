@@ -10,7 +10,6 @@ export function DraggableColorBox({ box }) {
   }
   const handleDragOver = (e, box) => {
     e.preventDefault();
-    setCurrentBox(currentBox)
     newPaletteDispatch({
       type: 'update',
       box: box,

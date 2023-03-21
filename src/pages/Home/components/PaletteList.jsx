@@ -7,6 +7,7 @@ import styles from '../HomeStyle';
 export function PaletteList() {
   const { palettesState } = useContext(PalettesContext)
   const { minipalettes } = styles();
+  console.log(palettesState);
   let navigate = useNavigate();
   const handleClick = (id) => {
     navigate(`/colorsapp/${id}`);
