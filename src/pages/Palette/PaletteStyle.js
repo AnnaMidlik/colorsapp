@@ -1,14 +1,14 @@
 import { createUseStyles } from "react-jss";
+import sizes from "../../utils/sizes";
+
 const styles = createUseStyles({
   onePalette: {
     height: '100vh',
-    width: '100vw',
     display: 'flex',
     flexDirection: 'column'
   },
   boxes: {
     height: '90%',
-    fontSize: '0'
   },
   goBack: {
     width: "20%",
@@ -38,6 +38,18 @@ const styles = createUseStyles({
       textTransform: "uppercase",
       border: "none",
       textDecoration: "none"
+    },
+    [sizes.down("lg")]: {
+      width: "25%",
+      height: "33.3333%"
+    },
+    [sizes.down("md")]: {
+      width: "50%",
+      height: "20%"
+    },
+    [sizes.down("xs")]: {
+      width: "100%",
+      height: "10%"
     }
   },
 })

@@ -91,7 +91,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
           value={colorName}
           ref={inputRef}
           onChange={handleChange} />
-        <p className={error}>{errorMsg}</p>
+        <div className={error}>{errorMsg}</div>
         <button
           disabled={isError}
           onClick={handleClick}

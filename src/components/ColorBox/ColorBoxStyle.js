@@ -1,5 +1,6 @@
 import { createUseStyles } from 'react-jss';
 import chroma from 'chroma-js';
+import sizes from '../../utils/sizes';
 
 const styles = createUseStyles({
   box: {
@@ -16,6 +17,18 @@ const styles = createUseStyles({
     "&:hover button": {
       opacity: 1,
       transition: "0.5s"
+    },
+    [sizes.down('lg')]: {
+      width: '25%',
+      height: ({ showFullPalette }) => showFullPalette ? "20%" : "33.3333%",
+    },
+    [sizes.down('md')]: {
+      width: '50%',
+      height: ({ showFullPalette }) => showFullPalette ? "10%" : "20%",
+    },
+    [sizes.down('xs')]: {
+      width: '100%',
+      height: ({ showFullPalette }) => showFullPalette ? "5%" : "10%",
     },
   },
   copyBtn: {

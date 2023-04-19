@@ -23,8 +23,7 @@ export function ShadesPalette() {
     return shades.map(shade => <ColorBox
       key={shade.hex}
       color={shade[colorType]}
-      name={shade.name}
-      showFullPalette={false} />)
+      name={shade.name} />)
   }
   return (<div className={onePalette}>
     <Navbar

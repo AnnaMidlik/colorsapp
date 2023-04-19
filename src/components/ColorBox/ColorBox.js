@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Overlay } from '../Overlay/Overlay.jsx';
 import { useNavigate } from 'react-router-dom';
 import styles from './ColorBoxStyle';
-export function ColorBox({ color, name, colorId, paletteId, showFullPalette }) {
+export function ColorBox({ color, name, colorId, paletteId, showFullPalette = false }) {
   const [copied, setCopied] = useState(false);
   let navigate = useNavigate();
   const { box, copyBtn, moreBtn, title } = styles({ color, showFullPalette });
