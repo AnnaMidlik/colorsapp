@@ -1,5 +1,6 @@
 import { createUseStyles } from "react-jss";
 import chroma from "chroma-js";
+import sizes from "../../../../utils/sizes";
 
 const styles = createUseStyles({
   newFormContainer: {
@@ -16,7 +17,16 @@ const styles = createUseStyles({
     top: '0',
     left: '0',
     transform: ({ isOpenForm }) => isOpenForm ? 'translateX(0%)' : 'translateX(-200%)',
-    transition: '0.2s ease-out'
+    transition: '0.2s ease-out',
+    [sizes.down('md')]: {
+      width: '50%',
+      position: 'inherit'
+    },
+    '& h2': {
+      [sizes.down('md')]: {
+        fontSize: '1.2rem'
+      },
+    }
   },
   formBtns: {
     width: '100%',

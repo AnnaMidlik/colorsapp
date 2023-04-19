@@ -1,5 +1,6 @@
 import { createUseStyles } from "react-jss";
 import chroma from 'chroma-js';
+import sizes from "../../../../utils/sizes";
 
 const styles = createUseStyles({
   boxContainer: {
@@ -39,8 +40,19 @@ const styles = createUseStyles({
       left: '5px',
       fontSize: '16px',
       fontWeight: '600'
+    },
+    [sizes.down("lg")]: {
+      width: "25%",
+      height: "20%"
+    },
+    [sizes.down("md")]: {
+      width: "50%",
+      height: "10%"
+    },
+    [sizes.down("sm")]: {
+      width: "100%",
+      height: '5%'
     }
-
   }
 });
 export default styles

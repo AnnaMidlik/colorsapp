@@ -1,8 +1,8 @@
 import { createUseStyles } from 'react-jss';
+import sizes from '../../utils/sizes';
 
 const styles = createUseStyles({
   newPalette: {
-    height: '100vh',
     width: '100vw',
     display: 'flex',
     fontFamily: 'Inter, sans-serif',
@@ -14,7 +14,10 @@ const styles = createUseStyles({
     top: '0',
     height: '100%',
     width: ({ isOpenForm }) => isOpenForm ? "70%" : "100%",
-    transition: '0.2s ease-out'
+    transition: '0.2s ease-out',
+    [sizes.down('md')]: {
+      width: ({ isOpenForm }) => isOpenForm ? "50%" : "100%",
+    }
   }
 });
 

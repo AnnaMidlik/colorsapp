@@ -1,4 +1,5 @@
 import { createUseStyles } from "react-jss";
+import sizes from "../../../../utils/sizes";
 
 const styles = createUseStyles({
   navbar: {
@@ -7,8 +8,12 @@ const styles = createUseStyles({
     justifyContent: 'space-between',
     alignItems: 'center',
     '& h1': {
+      margin: '0',
       marginLeft: '50px',
-      color: '#0077B6'
+      color: '#0077B6',
+      [sizes.down('md')]: {
+        fontSize: '1.2rem'
+      }
     }
   },
 
@@ -18,7 +23,11 @@ const styles = createUseStyles({
     border: 'none',
     '& img': {
       height: '40px',
-      width: '40px'
+      width: '40px',
+      [sizes.down('md')]: {
+        width: '30px',
+        height: '30px'
+      }
     }
   }
 })

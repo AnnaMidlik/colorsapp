@@ -1,4 +1,5 @@
-import { createUseStyles } from 'react-jss'
+import { createUseStyles } from 'react-jss';
+import sizes from '../../../utils/sizes';
 
 const styles = createUseStyles({
   slider: {
@@ -35,7 +36,9 @@ const styles = createUseStyles({
         }
       }
     },
-
+    [sizes.down("md")]: {
+      width: "230px"
+    }
   }
 })
 export default styles

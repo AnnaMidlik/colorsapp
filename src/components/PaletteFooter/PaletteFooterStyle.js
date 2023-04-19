@@ -2,9 +2,10 @@ import { createUseStyles } from 'react-jss'
 
 const styles = createUseStyles({
   footer: {
-    width: '100vw',
     height: '5%',
-    textAlign: 'end',
+    display: 'flex',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
     "& p": {
       margin: '0 1rem 0 0',
 

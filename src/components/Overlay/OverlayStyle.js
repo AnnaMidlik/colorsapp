@@ -1,5 +1,6 @@
 
 import { createUseStyles } from 'react-jss';
+import sizes from '../../utils/sizes';
 
 const styles = createUseStyles({
   overlay: {
@@ -37,6 +38,9 @@ const styles = createUseStyles({
       width: '100%',
       textAlign: 'center',
       marginBottom: '0',
+      [sizes.down('xs')]: {
+        fontSize: '6rem'
+      }
     },
     "& p": {
       fontSize: '2rem',

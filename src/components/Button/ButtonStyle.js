@@ -1,4 +1,6 @@
 import { createUseStyles } from "react-jss";
+import sizes from "../../utils/sizes";
+
 const styles = createUseStyles({
   button: {
     appearance: 'none',
@@ -24,6 +26,9 @@ const styles = createUseStyles({
     '&:focus': {
       color: '#fff',
       outline: '0',
+    },
+    [sizes.down('md')]: {
+      fontSize: '0.8rem'
     }
 
   }
