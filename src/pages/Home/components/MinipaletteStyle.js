@@ -1,4 +1,5 @@
-import { createUseStyles } from 'react-jss'
+import { createUseStyles } from 'react-jss';
+import sizes from '../../../utils/sizes';
 
 const styles = createUseStyles({
   minipalette: {
@@ -25,6 +26,9 @@ const styles = createUseStyles({
       "&:hover": {
         color: '#023E8A'
       }
+    },
+    [sizes.down('xs')]: {
+      width: '80%'
     }
   },
   colorsContainer: {
