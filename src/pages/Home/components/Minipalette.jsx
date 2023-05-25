@@ -6,8 +6,9 @@ export function Minipalette({ paletteName, id, colors, handleClick }) {
   const { palettesDispatch } = useContext(PalettesContext)
   const { minipalette, colorsContainer, title, miniColorBox } = styles();
   const showMinipalettes = (colors) => {
+    console.log(colors)
     return colors.map(color => <div className={miniColorBox}
-      style={{ backgroundColor: color.color }}
+      style={{ backgroundColor: color.hex }}
       key={color.name} />)
   }
   const handleRemoveButtonClick = (e) => {
