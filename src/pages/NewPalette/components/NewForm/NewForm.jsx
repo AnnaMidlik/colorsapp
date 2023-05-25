@@ -45,6 +45,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
       })
       setColorName('')
     } else {
+      console.log('error')
       return inputRef.current.focus()
     }
   }
@@ -74,6 +75,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
               type: 'clear'
             })} />
         <Button
+          disabled={newPaletteState.length >= 20 ? true : false}
           onClick={randomColor}
           color={'#023E8A'}
           text='RANDOM COLOR'
@@ -94,7 +96,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
           onChange={handleChange} />
         <div className={error}>{errorMsg}</div>
         <button
-          disabled={isError}
+          disabled={isError || newPaletteState.length >= 20 ? true : false}
           onClick={handleClick}
           className={addColor}
           type='submit'

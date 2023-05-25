@@ -29,8 +29,10 @@ const styles = createUseStyles({
     },
     [sizes.down('md')]: {
       fontSize: '0.8rem'
+    },
+    '&:disabled': {
+      opacity: '0.2',
     }
-
   }
 }
 )

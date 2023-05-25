@@ -60,6 +60,9 @@ const styles = createUseStyles({
       chroma(currentColor.hex).luminance() >= 0.6
         ? 'black'
         : 'white',
+    "&:disabled": {
+      opacity: '0.5'
+    }
   },
   chromePicker: {
     width: '100% !important'
