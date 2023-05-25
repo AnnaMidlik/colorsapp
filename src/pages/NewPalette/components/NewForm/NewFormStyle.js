@@ -22,6 +22,11 @@ const styles = createUseStyles({
       width: '50%',
       position: 'inherit'
     },
+    [sizes.down('sm')]: {
+      width: '50%',
+      position: 'static',
+      order: '2'
+    },
     '& h2': {
       [sizes.down('md')]: {
         fontSize: '1.2rem'

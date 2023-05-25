@@ -7,6 +7,10 @@ const styles = createUseStyles({
     display: 'flex',
     fontFamily: 'Inter, sans-serif',
     position: 'relative',
+    [sizes.down('sm')]: {
+      flexDirection: 'column',
+      alignItems: 'center'
+    }
   },
   main: {
     position: 'fixed',
@@ -17,6 +21,12 @@ const styles = createUseStyles({
     transition: '0.2s ease-out',
     [sizes.down('md')]: {
       width: ({ isOpenForm }) => isOpenForm ? "50%" : "100%",
+    },
+    [sizes.down('sm')]: {
+      width: ({ isOpenForm }) => "100%",
+      position: 'static',
+      order: '1',
+      marginTop: '1rem'
     }
   }
 });

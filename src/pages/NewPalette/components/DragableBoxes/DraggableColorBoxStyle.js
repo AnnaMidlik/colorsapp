@@ -34,6 +34,9 @@ const styles = createUseStyles({
           chroma(box.hex).luminance() >= 0.6
             ? 'white'
             : 'black',
+      },
+      [sizes.down("sm")]: {
+        right: '1rem'
       }
     },
     '& div span': {
@@ -45,7 +48,10 @@ const styles = createUseStyles({
       bottom: '5px',
       left: '5px',
       fontSize: '16px',
-      fontWeight: '600'
+      fontWeight: '600',
+      [sizes.down("sm")]: {
+        left: '1rem'
+      }
     },
     [sizes.down("lg")]: {
       width: "25%",
@@ -57,7 +63,7 @@ const styles = createUseStyles({
     },
     [sizes.down("sm")]: {
       width: "100%",
-      height: '5%'
+      height: '2rem',
     }
   }
 });

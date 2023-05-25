@@ -1,9 +1,10 @@
 import { createUseStyles } from "react-jss";
+import sizes from "../../utils/sizes";
 const styles = createUseStyles({
   container: {
     display: ({ showModal }) => showModal ? 'block' : 'none',
     zIndex: '2',
-    position: 'abcolute',
+    position: 'absolute',
     width: '100vw',
     height: '100vh',
     background: ({ showModal }) => showModal ? 'rgba(108, 117, 125, 0.8)' : 'transparent'
@@ -35,6 +36,11 @@ const styles = createUseStyles({
       fontSize: '12px',
       color: ({ errorName }) => errorName ? 'red' : 'black'
     },
+    [sizes.down('sm')]: {
+      width: '300px',
+      height: '300px',
+      margin: '-150px 0 0 -150px',
+    }
   },
   modalBtns: {
     position: 'absolute',

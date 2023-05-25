@@ -14,7 +14,10 @@ const styles = createUseStyles({
       [sizes.down('md')]: {
         fontSize: '1.2rem'
       }
-    }
+    },
+    [sizes.down('sm')]: {
+      marginBottom: '1rem'
+    },
   },
 
   openFormBtn: {
