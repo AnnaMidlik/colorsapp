@@ -28,7 +28,7 @@ function generatePalette(palette) {
     newPalette.colors[level] = [];
   }
   for (let color of palette.colors) {
-    let scale = getScale(color.color, levels.length)
+    let scale = getScale(color.hex, levels.length)
     for (let i in scale) {
       newPalette.colors[levels[i]].push({
         name: `${color.name} ${levels[i]}`,
