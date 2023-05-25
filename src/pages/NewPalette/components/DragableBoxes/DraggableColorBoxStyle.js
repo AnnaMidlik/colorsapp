@@ -6,7 +6,13 @@ const styles = createUseStyles({
   boxContainer: {
     width: '20%',
     height: '25%',
-    backgroundColor: (box) => box.color,
+    backgroundColor: (box) => box.rgba
+      ? `rgba(
+      ${box.rgba.r},
+      ${box.rgba.g},
+      ${box.rgba.b},
+      ${box.rgba.a})`
+      : box.hex,
     display: 'inline-block',
     position: 'relative',
     cursor: 'pointer',
@@ -20,12 +26,12 @@ const styles = createUseStyles({
       right: '5px',
       transition: 'all 0.3s ease-in-out',
       color: (box) =>
-        chroma(box.color).luminance() >= 0.6
+        chroma(box.hex).luminance() >= 0.6
           ? 'black'
           : 'white',
       '&:hover': {
         color: (box) =>
-          chroma(box.color).luminance() >= 0.6
+          chroma(box.hex).luminance() >= 0.6
             ? 'white'
             : 'black',
       }
@@ -33,7 +39,7 @@ const styles = createUseStyles({
     '& div span': {
       position: 'absolute',
       color: (box) =>
-        chroma(box.color).luminance() >= 0.6
+        chroma(box.hex).luminance() >= 0.6
           ? 'black'
           : 'white',
       bottom: '5px',

@@ -39,7 +39,11 @@ const styles = createUseStyles({
     width: '100%',
   },
   addColor: {
-    backgroundColor: ({ currentColor }) => currentColor.hex,
+    backgroundColor: ({ currentColor }) => `rgba(
+      ${currentColor.rgb.r},
+      ${currentColor.rgb.g},
+      ${currentColor.rgb.b},
+      ${currentColor.rgb.a})`,
     marginTop: '1rem',
     width: '100%',
     padding: '1rem',

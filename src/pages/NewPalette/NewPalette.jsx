@@ -10,7 +10,7 @@ import styles from './NewPaletteStyle';
 export function NewPalette() {
   const [newPaletteState, newPaletteDispatch] = useReducer(newPaletteReduser, []);
   const [isOpenForm, setIsOpenForm] = useState(true);
-  const [currentColor, setCurrentColor] = useState({ hex: '#0077B6' });
+  const [currentColor, setCurrentColor] = useState({ hex: '#0077B6', rgb: { r: 0, g: 119, b: 182, a: 1 } });
   const [currentBox, setCurrentBox] = useState(null)
   const [showModal, setShowModal] = useState(false)
   const { newPalette, main } = styles({ isOpenForm, showModal });

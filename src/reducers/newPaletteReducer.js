@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-export default function newPaletteReducer(state, { type, name, color, currentBox, box, id }) {
+export default function newPaletteReducer(state, { type, name, color, rgba, currentBox, box, id }) {
   switch (type) {
     case 'create':
-      const newItem = { color: color, name: name, id: uuidv4() };
+      const newItem = { hex: color, rgba: rgba, name: name, id: uuidv4() };
       return [...state, newItem]
     case 'update':
       let currentBoxindex = state.indexOf(currentBox)

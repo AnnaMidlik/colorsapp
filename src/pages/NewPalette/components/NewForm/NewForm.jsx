@@ -40,6 +40,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
       newPaletteDispatch({
         type: 'create',
         color: currentColor.hex,
+        rgba: currentColor.rgb,
         name: colorName
       })
       setColorName('')
@@ -81,7 +82,7 @@ export function NewForm({ isOpenForm, currentColor, setCurrentColor }) {
       <form onSubmit={handleSubmit} className={formContainer}>
         <ChromePicker
           className={chromePicker}
-          color={currentColor}
+          color={currentColor.rgb}
           onChangeComplete={(newColor) => setCurrentColor(newColor)} />
         <input
           className={input}
