@@ -5,7 +5,7 @@ import { ColorTypeSelect } from './components/ColorTypeSelect.jsx';
 import styles from './NavbarStyle';
 
 export function Navbar({ level, setLevel, colorType, setColorType, showSlider }) {
-  const { navbar, logo } = styles();
+  const { navbar, logo } = styles(showSlider);
   return (
     <header className={navbar}>
       <Link className={logo} to='/colorsapp'>Colors App</Link>

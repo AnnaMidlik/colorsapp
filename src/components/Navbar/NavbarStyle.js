@@ -13,7 +13,7 @@ const styles = createUseStyles({
       height: 'auto',
       display: 'grid',
       justifyItems: 'start',
-      gridTemplateAreas: '"logo logo" "slider select" ',
+      gridTemplateAreas: (showSlider) => showSlider ? '"logo logo" "slider select"' : '"logo logo" "select select"',
       marginBottom: '1rem'
     }
   },
