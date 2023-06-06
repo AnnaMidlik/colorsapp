@@ -25,6 +25,9 @@ const styles = createUseStyles({
     [sizes.down('md')]: {
       width: '50%',
       height: ({ showFullPalette }) => showFullPalette ? "10%" : "20%",
+      "& button": {
+        opacity: 1,
+      },
     },
     [sizes.down('xs')]: {
       width: '100%',
