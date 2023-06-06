@@ -1,4 +1,5 @@
 import { createUseStyles } from 'react-jss';
+import sizes from '../../../utils/sizes';
 
 const styles = createUseStyles({
   mySelect: {
@@ -44,6 +45,9 @@ const styles = createUseStyles({
       display: 'none'
       /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
     },
+    [sizes.down('xs')]: {
+      gridArea: 'select'
+    }
   },
 
 })

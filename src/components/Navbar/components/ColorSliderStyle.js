@@ -38,6 +38,9 @@ const styles = createUseStyles({
     },
     [sizes.down("md")]: {
       width: "230px"
+    },
+    [sizes.down('xs')]: {
+      gridArea: 'slider',
     }
   }
 })

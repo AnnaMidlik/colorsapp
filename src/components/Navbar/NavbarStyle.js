@@ -8,7 +8,14 @@ const styles = createUseStyles({
     alignItems: 'center',
     justifyContent: 'space-between',
     textAlign: 'center',
-    padding: '0 1rem '
+    padding: '0 1rem ',
+    [sizes.down('xs')]: {
+      height: 'auto',
+      display: 'grid',
+      justifyItems: 'start',
+      gridTemplateAreas: '"logo logo" "slider select" ',
+      marginBottom: '1rem'
+    }
   },
   logo: {
     margin: '0 15px',
@@ -17,7 +24,9 @@ const styles = createUseStyles({
     textDecoration: 'none',
     color: '#0077B6',
     [sizes.down("xs")]: {
-      display: "none"
+      margin: '0 0',
+      gridArea: 'logo',
+      marginBottom: '1rem'
     }
   }
 })
